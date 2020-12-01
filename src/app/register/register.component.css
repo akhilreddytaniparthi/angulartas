@@ -1,0 +1,31 @@
+.heading{
+    font-family: 'PT Serif', serif;
+}
+.login-text{
+    text-decoration: none;
+    
+    font-family: 'Dosis', sans-serif;
+}
+.eye{
+    cursor: pointer;
+}
+.form-group i{
+    float:right;
+}
+.list-text{
+    float:right;
+    color: green;
+}
+.list ul li{
+    display: inline-block;
+}
+li a{
+    color: rgb(87, 86, 86);
+    text-decoration: none;
+    cursor: not-allowed;
+}
+.big-checkbox {
+    width: 20px;
+    height: 20px;
+}
+  

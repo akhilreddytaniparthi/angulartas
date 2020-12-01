@@ -1,0 +1,121 @@
+<!-- start of heading and heading text -->
+<header id="header" *ngIf="viewSec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-7 col-sm-12 my-5">
+        <h1 class="heading">Welcome to Mailchimp</h1>
+        <p class="text-muted lead py-2">Find your people.Engage your customers. Bulid your brand. Do it all
+          with Mailchimp's Marketing Platform. Already have an account?<a class="login-text text-lead text-info px-2"
+            href="#">Log in</a>
+        </p>
+        <!-- forms starts -->
+        <form [formGroup]="registrationForm">
+          <div class="form-group">
+            <!-- email content -->
+            <label>Email address</label>
+            <input [class.is-invalid]="registrationForm.get('email').invalid && registrationForm.get('email').touched"
+              type="email" class="form-control" formControlName="email">
+            <div
+              *ngIf="(registrationForm.get('email').invalid && registrationForm.get('email').touched) || registrationForm.get('email').dirty">
+              <small *ngIf="registrationForm.get('email').errors?.required" class="text-danger">Email is
+                required</small>
+              <small *ngIf="registrationForm.get('email').errors?.pattern" class="text-danger">Please provide a valid
+                email address</small>
+            </div>
+          </div>
+          <!-- end of email content -->
+          <!-- user name content -->
+          <div class="form-group">
+            <label>Username</label>
+            <input
+              [class.is-invalid]="registrationForm.get('userName').invalid && registrationForm.get('userName').touched"
+              formControlName="userName" type="text" class="form-control">
+            <div *ngIf="registrationForm.get('userName').invalid && registrationForm.get('userName').touched">
+              <small *ngIf="registrationForm.get('userName').errors?.required" class="text-danger">Username is
+                required</small>
+              <small *ngIf="registrationForm.get('userName').errors?.minlength" class="text-danger">Username must be at
+                least 3 characters</small>
+            </div>
+          </div>
+          <!-- end of user name content -->
+          <!-- password content -->
+          <div class="form-group">
+            <label>Password</label>
+            <input
+              [class.is-invalid]="registrationForm.get('password').invalid && registrationForm.get('password').touched"
+              formControlName="password" type="password" class="form-control">
+            <div
+              *ngIf="(registrationForm.get('password').invalid && registrationForm.get('password').touched) || registrationForm.get('password').dirty">
+              <small *ngIf="registrationForm.get('password').errors?.required" class="text-danger">password is
+                required</small>
+              <small *ngIf="registrationForm.get('password').errors?.pattern" class="text-danger">Please provide a valid
+                password</small>
+            </div>
+          </div>
+          <!--end of password content -->
+        </form>
+        <!-- forms ends here -->
+      </div>
+    </div>
+  </div>
+</header>
+<!-- end of first header -->
+<div class="py-2 my-0" *ngIf="viewSec">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 text-muted px-0 ">
+        <ul>
+          <li><a href="#">One lowercase character</a></li>
+          <li><a href="#">One uppercase character</a></li>
+          <li><a href="#">One number</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 text-muted px-0 ">
+        <ul>
+          <li><a href="#">One special character</a></li>
+          <li><a href="#">8 characters minimum</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of list -->
+<!-- button-check-box-and-text -->
+<section *ngIf="viewSec">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2 col-md-3 col-sm-4 col-4 text-muted px-0">
+        <div class="form-group-btn">
+          <!-- <button (click)="onClick('email-confirm')" routerLink="/welcome" routerLinkActive="active" type="submit"
+              class="btn btn-outline-info px-4 mx-3 text-muted bg-light">Sign Up</button> -->
+
+          <button [disabled]="registrationForm.invalid" type="submit" class="btn btn-info px-4 mx-3"
+            routerLink="/welcome" routerLinkActive="active">Sign Up</button>
+        </div>
+
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-8 col-8 text-muted px-0">
+        <div class="check-box-text">
+          <input class="form-check-input" formControlName="subscribe" type="checkbox">
+          <label class="form-check-label text-lead mx-1" for="exampleCheck1">I don't want to receive emails about new
+            Mailchimp products, best practies, or special offers.</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end of button-check-box-and-text -->
+<!-- footer-text -->
+<section id="header" *ngIf="viewSec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-7 col-sm-12 my-5">
+        <p class="text-muted text-lead py-2">By clicking the "Sign Up" button, you are creating a Mailchimp account, and
+          you agree to
+          Mailchimp's<a class="footer-text text-lead text-info px-2" href="#">Terms of Use</a>and<a
+            class="footer-text text-lead text-info px-2" href="#">Privacy Policy.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

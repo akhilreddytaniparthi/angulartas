@@ -1,0 +1,89 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-7 col-sm-12">
+                <h1 class="heading">Add your address</h1>
+
+
+                <p>But why? Believe it or not, we need a physical address to make sure
+                    your email's comply with <a href="" class="text-info">international anti-spam laws.</a> Don't have
+                    an offcial business address? Learn about <a href="" class="text-info">physical address
+                        alternatives.</a>
+                </p>
+            </div>
+
+            <!-- form -->
+            <form [formGroup]="addressForm">
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div class="form-group">
+                        <label for="inputAddress">Address line 1(Street address or post office box)</label>
+                        <input
+                            [class.is-invalid]="addressForm.get('addressLine1').invalid && addressForm.get('addressLine1').touched"
+                            formControlName="addressLine1" type="text" class="form-control" id="inputAddress"
+                            placeholder="1234 Main St">
+                        <small
+                            [class.d-none]="addressForm.get('addressLine1').valid || addressForm.get('addressLine1').untouched"
+                            class="text-info">address is required</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">Address line 2</label>
+                        <input
+                            [class.is-invalid]="addressForm.get('addressLine2').invalid && addressForm.get('addressLine2').touched"
+                            formControlName="addressLine2" type="text" class="form-control" id="inputAddress2"
+                            placeholder="Apartment, studio, or floor">
+                        <small
+                            [class.d-none]="addressForm.get('addressLine2').valid || addressForm.get('addressLine2').untouched"
+                            class="text-info">address is required</small>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">City</label>
+                            <input
+                                [class.is-invalid]="addressForm.get('city').invalid && addressForm.get('city').touched"
+                                formControlName="city" type="text" class="form-control" id="inputCity">
+                            <small [class.d-none]="addressForm.get('city').valid || addressForm.get('city').untouched"
+                                class="text-info">city name is required</small>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputState">State/Province/Region</label>
+                            <select
+                                [class.is-invalid]="addressForm.get('stateProvinceRegion').invalid && addressForm.get('stateProvinceRegion').touched"
+                                formControlName="stateProvinceRegion " id="inputState" class="form-control">
+                                <small
+                                    [class.d-none]="addressForm.get('stateProvinceRegion').valid || addressForm.get('stateProvinceRegion').untouched"
+                                    class="text-info">state/Province/Region name is required</small>
+                                <option selected>Tn</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputZip">Zip</label>
+                            <input [class.is-invalid]="addressForm.get('zip').invalid && addressForm.get('zip').touched"
+                                formControlName="zip" type="number" class="form-control" id="inputZip"
+                                placeholder="6300039">
+                            <small [class.d-none]="addressForm.get('zip').valid || addressForm.get('zip').untouched"
+                                class="text-info">zip code name is required</small>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputCountry">Country</label>
+                            <select
+                                [class.is-invalid]="addressForm.get('country').invalid && addressForm.get('country').touched"
+                                formControlName="country" id="inputCountry" class="form-control">
+                                <small
+                                    [class.d-none]="addressForm.get('country').valid || addressForm.get('country').untouched"
+                                    class="text-info">country name is required</small>
+                                <option selected>India</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" routerLink="/contacts-one"
+                        routerLinkActive="active">Sign in</button>
+                </div>
+            </form>
+
+            <!--end of form -->
+
+        </div>
+    </div>
+</section>
